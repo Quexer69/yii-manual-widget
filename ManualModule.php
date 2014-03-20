@@ -20,7 +20,6 @@ class ManualModule extends CWebModule
 
         // import the module-level controllers and components
         $this->setImport(array(
-            'manual.controllers.*',
             'manual.components.*',
         ));
     }

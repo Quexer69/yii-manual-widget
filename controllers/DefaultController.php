@@ -12,10 +12,12 @@ class DefaultController extends Controller
     public function accessRules()
     {
         return array(
-            array(
-                'allow',
+            array('allow', // allow authenticated user to view the page
                 'actions' => array('index'),
-                'users'   => array('*'),
+                'roles' => array('@'),
+            ),
+            array('deny', // deny all users
+                'users' => array('*'),
             ),
         );
     }
