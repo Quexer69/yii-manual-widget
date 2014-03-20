@@ -3,7 +3,7 @@
     "description": "Generate TbTabs based yii manual widget. reads files from a directory and put each file from a set file extension in tabs",
     "keywords": ["yii", "widget", "manual", "generator"],
     "require": {
-        "clevertech/yii-booster": ">=2.*",
+        "clevertech/yii-booster": ">=2.0",
         "yiisoft/yii": ">=1.1.13"
     },
     "license": "MIT",
