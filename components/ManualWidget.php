@@ -63,6 +63,16 @@
         public function init()
         {
             parent::init();
+
+            // Some Css code for list styles
+            Yii::app()->clientScript->registerCss('ManualWidget',
+                '[id^=manual_] ul li {'
+                . 'list-style : disc;'
+                . '}' .
+                '[id^=manual_] ol li {'
+                . 'list-style : disc;'
+                . '}'
+            );
         }
 
         public function run()

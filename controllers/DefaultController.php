@@ -1,6 +1,6 @@
 <?php
 
-class ManualController extends Controller
+class DefaultController extends Controller
 {
     public function filters()
     {
@@ -15,7 +15,7 @@ class ManualController extends Controller
             array(
                 'allow',
                 'actions' => array('index'),
-                'users'   => array('@'),
+                'users'   => array('*'),
             ),
         );
     }

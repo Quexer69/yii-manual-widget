@@ -20,17 +20,9 @@ class ManualModule extends CWebModule
 
         // import the module-level controllers and components
         $this->setImport(array(
+            'manual.controllers.*',
             'manual.components.*',
         ));
-
-        Yii::app()->clientScript->registerCss('ManualWidget',
-            '[id^=manual_] ul li {'
-            . 'list-style  : disc;'
-            . '}' .
-            '[id^=manual_] ol li {'
-            . 'list-style  : disc;'
-            . '}'
-        );
     }
 
     public function beforeControllerAction($controller, $action)
