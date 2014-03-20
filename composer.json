@@ -1,0 +1,17 @@
+{
+    "name": "quexer69/yii-manual-widget",
+    "description": "Generate TbTabs based yii manual widget. reads files from a directory and put each file from a set file extension in tabs",
+    "keywords": ["yii", "widget", "manual", "generator"],
+    "require": {
+        "clevertech/yii-booster": ">=2.*",
+        "yiisoft/yii": ">=1.1.13"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christopher Stebe",
+            "email": "cstebe@iserv4u.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
