@@ -14,7 +14,7 @@ class DefaultController extends Controller
         return array(
             array('allow', // allow authenticated user to view the page
                 'actions' => array('index'),
-                'roles' => array('@'),
+                'expression' => '!Yii::app()->user->isGuest',
             ),
             array('deny', // deny all users
                 'users' => array('*'),
