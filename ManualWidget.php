@@ -36,7 +36,7 @@
         public $manualHeader;
 
         /**
-         * @var string path
+         * @var string path or alias
          */
         public $path;
 
@@ -85,6 +85,10 @@
 
             echo "<hr>";
 
+            // use alias fallback
+            if (!is_dir($this->path)) {
+                $this->path = Yii::getPathOfAlias($this->path);
+            }
             if (!is_dir($this->path)) {
                 throw new CException(401);
             } else {

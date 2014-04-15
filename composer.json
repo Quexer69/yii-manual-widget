@@ -13,5 +13,7 @@
             "email": "cstebe@iserv4u.com"
         }
     ],
-    "minimum-stability": "stable"
+    "autoload": {
+        "classmap": ["ManualWidget.php"]
+    }
 }
