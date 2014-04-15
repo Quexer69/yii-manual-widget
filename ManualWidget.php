@@ -36,7 +36,7 @@
         public $manualHeader;
 
         /**
-         * @var string path
+         * @var string path or alias
          */
         public $path;
 
