@@ -2,7 +2,7 @@
 
 ---
 
-**Version 3.0.0**
+**Version 5.0.0**
 
 
 What is Manual Widget?

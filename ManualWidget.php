@@ -14,14 +14,13 @@
  * <pre>
  * <?php
  *   $this->widget('application.components.manual-widget.ManualWidget', array(
-            'path'         => Yii::getPathOfAlias('root.docs'),
-            'placement'    => 'top',
-            'icon'         => 'icon-tag',
-            'allowext'     => array(
-                'md'
-            )
-        )
-    );
+ * 'path'         => Yii::getPathOfAlias('root.docs'),
+ * 'placement'    => 'top',
+ * 'allowext'     => array(
+ * 'md'
+ * )
+ * )
+ * );
  *
  * </pre>
  */
@@ -31,35 +30,18 @@ class ManualWidget extends CWidget
      * @var string path or alias
      */
     public $path;
-
     /**
      * @var string path
      */
     public $allowext = array("md");
-
     /**
      * @var string placement
      */
     public $placement = "top";
 
-    /**
-     * @var string icon class name
-     */
-    public $icon;
-
     public function init()
     {
         parent::init();
-
-        // Some Css code for list styles
-        Yii::app()->clientScript->registerCss('ManualWidget',
-            '[id^=manual_] ul li {'
-            . 'list-style : disc;'
-            . '}' .
-            '[id^=manual_] ol li {'
-            . 'list-style : disc;'
-            . '}'
-        );
     }
 
     public function run()
@@ -86,15 +68,18 @@ class ManualWidget extends CWidget
     {
         $tabs    = array();
         $counter = 0;
+        $imageTags = array();
+
         foreach ($files_array AS $filename => $path) {
 
             Yii::app()->controller->beginClip($filename);
 
-            Yii::app()->controller->beginWidget('CMarkdown');
-            if (is_file($path)) {
-                echo file_get_contents($path);
-            }
-            Yii::app()->controller->endWidget();
+                Yii::app()->controller->beginWidget('CMarkdown');
+                if (is_file($path)) {
+                    $fileContent = file_get_contents($path);
+                    echo preg_replace('/(!\[.*\]\()(.*\))/', '$1/docs/userImage?img=$2', $fileContent);
+                }
+                Yii::app()->controller->endWidget();
 
             Yii::app()->controller->endClip();
 
@@ -105,8 +90,7 @@ class ManualWidget extends CWidget
             $tabs[] =
                 array(
                     'id'      => 'manual_' . $label,
-                    'label'   => '' . strtoupper($label) . '',
-                    'icon'    => ($this->icon) ? $this->icon : false,
+                    'label'   => $label,
                     'content' => Yii::app()->controller->clips[$filename],
                     'visible' => true,
                     'active'  => ($counter == 0) ? true : false,
